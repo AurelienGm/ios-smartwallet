@@ -30,32 +30,18 @@ public class Application {
     static let erc20: ERC20 = ERC20(client: ethereumClient)
     
     static func restore(walletId: WalletID){
-        self.smartwallet = GnosisSafe(address: walletId.address, rpc: ethereumClient)
+        
+        //TODO REMOVE HARD CODDED AGRGENT ADDRESS
+        self.smartwallet = Argent(address: "0xe37BBBdd7364D82d46f6C346AA8977e27e9E374B", rpc: ethereumClient)
         self.account = HDEthereumAccount(mnemonic: walletId.mnemonic)
+        NSLog(self.account!.first.ethereumAddress.value)
+        NSLog(self.account!.first.description)
+              
     }
     
     static func clear(){
         self.smartwallet = nil
         self.account = nil
-    }
-    
-    static func encodeExecute(to: web3.EthereumAddress, value:BigUInt, data: Data, safeTxGas: BigUInt, speed: Speed, completion: @escaping (Result<(String), Error>) -> Void)  -> Void {
-        
-        let gasPrice = BigUInt(speed.gas_price)!
-        let refundAddress = EthereumAddress(speed.relayer)
-        
-        self.smartwallet!.getTransactionHashWithNonce(to: to, value: value, data: data, safeTxGas: safeTxGas, baseGas: baseGas, gasPrice:gasPrice , refundReceiver: refundAddress) { (result) in
-            switch result {
-            case .success(let hash):
-                let signature = self.account!.first.signV27(hash: Data(hex: hash)!)
-                let executeData = self.smartwallet!.encodeExecute(to: to, value: value, data: data, safeTxGas: safeTxGas, baseGas: baseGas, gasPrice: gasPrice, refundReceiver: refundAddress, signature: signature)
-                completion(.success(executeData))
-                return
-            case .failure(let error):
-                completion(.failure(error))
-                return
-            }
-        }
     }
     
     static func relay(to: web3.EthereumAddress, value:BigUInt, data: Data, safeTxGas: BigUInt, completion: @escaping (Result<(RelayResponse), Error>) -> Void)  -> Void {
@@ -64,7 +50,7 @@ public class Application {
             switch result {
             case .success(let gasPriceResponse):
                 
-                self.encodeExecute(to: to, value: value, data: data, safeTxGas: safeTxGas, speed:gasPriceResponse.speeds.fastest) { (result) in
+                /*self.encodeExecuteGnosis(to: to, value: value, data: data, safeTxGas: safeTxGas, speed:gasPriceResponse.speeds.fastest) { (result) in
                     switch result {
                     case .success(let executeData):
                         
@@ -76,7 +62,26 @@ public class Application {
                         completion(.failure(error))
                         return
                     }
-                }
+                
+            
+                }*/
+                
+                
+                self.encodeExecuteArgent(to: to, value: value, data: data) { (result) in
+                        switch result {
+                        case .success(let executeData):
+                            Application.backendService.relayTransaction(destination: Argent.transferModuleAddress, data: executeData.hexValue,//
+                                                                       completion: completion)
+                            return
+                        case .failure(let error):
+                            completion(.failure(error))
+                            return
+                        }
+                    
+                
+                    }
+        
+                                      
                 return
             case .failure(let error):
                 completion(.failure(error))
@@ -171,6 +176,64 @@ public class Application {
         return (Bundle.main.infoDictionary?[key] as? String)?
             .replacingOccurrences(of: "\\", with: "")
     }
+    
+    //MARK: Private method
+    
+    private static func encodeExecuteArgent(to: web3.EthereumAddress, value:BigUInt, data: Data, completion: @escaping (Result<(Data), Error>) -> Void)  -> Void {
+    
+        if let argentWallet = self.smartwallet as? Argent {
+            
+            
+            argentWallet.getNonceArg() { (result) in
+                switch result {
+                case .success(let nonce):
+                    var nonceBig = BigUInt(hex:nonce)!
+                    nonceBig = nonceBig + BigUInt(1)
+                    
+                    let encoded = try! ABIEncoder.encode(nonceBig, staticSize: 256)
+                    let nonce = encoded.hexString
+                     NSLog("NONCE : "+nonce)
+                    let callContractData =  argentWallet.encodeCallContract(to: to, value: value, data: data)
+                    NSLog("DATA : "+callContractData.hexValue)
+                    let hash = argentWallet.hashMessage(data: callContractData, nonce: nonce)
+                    let signature = try! signMessage(message: hash, hdwallet: self.account!)
+                 
+                    let execData = argentWallet.encodeExec(data: callContractData, signature: Data(hex: signature), nonce: nonce)
+                    completion(.success(execData))
+                    return
+                 case .failure(let error):
+                    completion(.failure(error))
+                    return
+                }
+                
+            }
+        } else {
+            completion(.failure(NSError(domain: "NOT ARGENT WALLET", code: 0, userInfo: nil)))
+        }
+    
+    }
+    
+    
+    
+    //MARK: Gnosis safe encode execute helper
+    private static func encodeExecuteGnosis(to: web3.EthereumAddress, value:BigUInt, data: Data, safeTxGas: BigUInt, speed: Speed, completion: @escaping (Result<(String), Error>) -> Void)  -> Void {
+           
+           let gasPrice = BigUInt(speed.gas_price)!
+           let refundAddress = EthereumAddress(speed.relayer)
+           
+           self.smartwallet!.getTransactionHashWithNonce(to: to, value: value, data: data, safeTxGas: safeTxGas, baseGas: baseGas, gasPrice:gasPrice , refundReceiver: refundAddress) { (result) in
+               switch result {
+               case .success(let hash):
+                   let signature = self.account!.first.signV27(hash: Data(hex: hash)!)
+                   let executeData = self.smartwallet!.encodeExecute(to: to, value: value, data: data, safeTxGas: safeTxGas, baseGas: baseGas, gasPrice: gasPrice, refundReceiver: refundAddress, signature: signature)
+                   completion(.success(executeData))
+                   return
+               case .failure(let error):
+                   completion(.failure(error))
+                   return
+               }
+           }
+       }
     
     
 }

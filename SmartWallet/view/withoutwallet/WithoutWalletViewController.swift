@@ -38,7 +38,6 @@ class WithoutWalletViewController: UIViewController {
                                 Application.restore(walletId: walletID)
                                 
                                 try? self.walletStorage.store(walletID: walletID)
-                                
                                 self.navigationController?.displayWalletView(animated: true, newWallet: true)
                             }
                             break

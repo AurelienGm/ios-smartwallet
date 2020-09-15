@@ -20,7 +20,6 @@
 		B63B470E24ED69F7000EFF59 /* TransactionReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63B470A24ED69F7000EFF59 /* TransactionReceipt.swift */; };
 		B63B471224ED6A21000EFF59 /* Encodable+toJSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63B470F24ED6A20000EFF59 /* Encodable+toJSONData.swift */; };
 		B63B471324ED6A21000EFF59 /* PrivateKey+EthereumAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63B471024ED6A21000EFF59 /* PrivateKey+EthereumAddress.swift */; };
-		B63B471424ED6A21000EFF59 /* BigInt+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63B471124ED6A21000EFF59 /* BigInt+Hex.swift */; };
 		B63B471824ED6A42000EFF59 /* WalletStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63B471524ED6A41000EFF59 /* WalletStorage.swift */; };
 		B63B471924ED6A42000EFF59 /* EthereumFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63B471624ED6A41000EFF59 /* EthereumFormatter.swift */; };
 		B63B474D24ED6BF5000EFF59 /* Purpose.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63B472024ED6BF5000EFF59 /* Purpose.swift */; };
@@ -39,13 +38,14 @@
 		B63B476024ED6BF5000EFF59 /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = B63B473724ED6BF5000EFF59 /* Crypto.m */; };
 		B63B476E24ED6BF5000EFF59 /* PublicKey+Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63B474824ED6BF5000EFF59 /* PublicKey+Ethereum.swift */; };
 		B63B476F24ED6BF5000EFF59 /* Ethereum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63B474924ED6BF5000EFF59 /* Ethereum.swift */; };
+		B64AC69E250BB92000ECEFE7 /* Argent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64AC69D250BB92000ECEFE7 /* Argent.swift */; };
+		B64AC6A0250F65F600ECEFE7 /* ArgentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64AC69F250F65F600ECEFE7 /* ArgentTests.swift */; };
 		B64C5D8C24F925EB00F1BB67 /* CoinGeckoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64C5D8B24F925EB00F1BB67 /* CoinGeckoService.swift */; };
 		B66A8F5B24F01EFD00BBD14B /* PrivateKey+v27.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A8F5A24F01EFD00BBD14B /* PrivateKey+v27.swift */; };
 		B674FB8224FE4A4D003E1460 /* WalletConnectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674FB8124FE4A4D003E1460 /* WalletConnectManager.swift */; };
 		B674FB842500EDDA003E1460 /* WalletConntectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674FB832500EDDA003E1460 /* WalletConntectViewController.swift */; };
 		B6A6435024EE9D16009D1750 /* HDEthereumAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6434F24EE9D16009D1750 /* HDEthereumAccount.swift */; };
 		B6A6435624EEA48D009D1750 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6435524EEA48D009D1750 /* Application.swift */; };
-		B6E1E9E424ED7A1D0081CF82 /* SmartWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1E9A524ED77310081CF82 /* SmartWalletTests.swift */; };
 		B6E1E9E524ED7A1D0081CF82 /* EthereumAccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1E9B024ED77C00081CF82 /* EthereumAccountTests.swift */; };
 		B6E1E9E624ED7A1D0081CF82 /* EtherNumberFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1E9AE24ED77C00081CF82 /* EtherNumberFormatterTests.swift */; };
 		B6E1EA0624ED7A8A0081CF82 /* HDWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E1E9EB24ED7A8A0081CF82 /* HDWalletTests.swift */; };
@@ -129,7 +129,6 @@
 		B63B470A24ED69F7000EFF59 /* TransactionReceipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionReceipt.swift; sourceTree = "<group>"; };
 		B63B470F24ED6A20000EFF59 /* Encodable+toJSONData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+toJSONData.swift"; sourceTree = "<group>"; };
 		B63B471024ED6A21000EFF59 /* PrivateKey+EthereumAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PrivateKey+EthereumAddress.swift"; sourceTree = "<group>"; };
-		B63B471124ED6A21000EFF59 /* BigInt+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BigInt+Hex.swift"; sourceTree = "<group>"; };
 		B63B471524ED6A41000EFF59 /* WalletStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletStorage.swift; sourceTree = "<group>"; };
 		B63B471624ED6A41000EFF59 /* EthereumFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthereumFormatter.swift; sourceTree = "<group>"; };
 		B63B471D24ED6BBA000EFF59 /* SmartWallet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmartWallet-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -150,6 +149,8 @@
 		B63B473724ED6BF5000EFF59 /* Crypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crypto.m; sourceTree = "<group>"; };
 		B63B474824ED6BF5000EFF59 /* PublicKey+Ethereum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PublicKey+Ethereum.swift"; sourceTree = "<group>"; };
 		B63B474924ED6BF5000EFF59 /* Ethereum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ethereum.swift; sourceTree = "<group>"; };
+		B64AC69D250BB92000ECEFE7 /* Argent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Argent.swift; sourceTree = "<group>"; };
+		B64AC69F250F65F600ECEFE7 /* ArgentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgentTests.swift; sourceTree = "<group>"; };
 		B64C5D8B24F925EB00F1BB67 /* CoinGeckoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinGeckoService.swift; sourceTree = "<group>"; };
 		B658BB6C2507A5B900E2A35E /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		B658BB6D2507A5C600E2A35E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
@@ -160,7 +161,6 @@
 		B6A6434F24EE9D16009D1750 /* HDEthereumAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDEthereumAccount.swift; sourceTree = "<group>"; };
 		B6A6435524EEA48D009D1750 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		B6E1E9A324ED77310081CF82 /* SmartWalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartWalletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B6E1E9A524ED77310081CF82 /* SmartWalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartWalletTests.swift; sourceTree = "<group>"; };
 		B6E1E9A724ED77310081CF82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6E1E9AE24ED77C00081CF82 /* EtherNumberFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EtherNumberFormatterTests.swift; sourceTree = "<group>"; };
 		B6E1E9B024ED77C00081CF82 /* EthereumAccountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthereumAccountTests.swift; sourceTree = "<group>"; };
@@ -315,6 +315,7 @@
 			children = (
 				B63B470824ED69F6000EFF59 /* SmartWallet.swift */,
 				B61766F324EE65C2009B7C5B /* GnosisSafe.swift */,
+				B64AC69D250BB92000ECEFE7 /* Argent.swift */,
 			);
 			path = smartwallet;
 			sourceTree = "<group>";
@@ -364,9 +365,9 @@
 			isa = PBXGroup;
 			children = (
 				B6E1E9EA24ED7A8A0081CF82 /* TrustCore */,
-				B6E1E9A524ED77310081CF82 /* SmartWalletTests.swift */,
 				B6E1E9B024ED77C00081CF82 /* EthereumAccountTests.swift */,
 				B6E1E9AE24ED77C00081CF82 /* EtherNumberFormatterTests.swift */,
+				B64AC69F250F65F600ECEFE7 /* ArgentTests.swift */,
 				B6E1E9A724ED77310081CF82 /* Info.plist */,
 			);
 			path = SmartWalletTests;
@@ -416,7 +417,6 @@
 				B674FB8124FE4A4D003E1460 /* WalletConnectManager.swift */,
 				DCBA5D01242928CE00EE8CA9 /* UIColor+hex.swift */,
 				DCFFBE4D246AB12800AB0C4B /* UIImageView+extension.swift */,
-				B63B471124ED6A21000EFF59 /* BigInt+Hex.swift */,
 			);
 			path = application;
 			sourceTree = "<group>";
@@ -790,10 +790,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6E1E9E424ED7A1D0081CF82 /* SmartWalletTests.swift in Sources */,
 				B6E1E9E524ED7A1D0081CF82 /* EthereumAccountTests.swift in Sources */,
 				B6E1EA0B24ED7A8A0081CF82 /* DataHexTests.swift in Sources */,
 				B6E1EA0A24ED7A8A0081CF82 /* DerivationPathTests.swift in Sources */,
+				B64AC6A0250F65F600ECEFE7 /* ArgentTests.swift in Sources */,
 				B6E1EA0724ED7A8A0081CF82 /* PublicKeyTests.swift in Sources */,
 				B6E1EA0624ED7A8A0081CF82 /* HDWalletTests.swift in Sources */,
 				B6E1EA0F24ED7A8A0081CF82 /* PrivateKeyTests.swift in Sources */,
@@ -831,7 +831,7 @@
 				DCA3CCEF2423885000FC135C /* TokenBalanceTableViewController.swift in Sources */,
 				B63B476F24ED6BF5000EFF59 /* Ethereum.swift in Sources */,
 				DC4ADCA024190E61008C23C7 /* TokenBalance.swift in Sources */,
-				B63B471424ED6A21000EFF59 /* BigInt+Hex.swift in Sources */,
+				B64AC69E250BB92000ECEFE7 /* Argent.swift in Sources */,
 				DC40D7B12412B1C300C792EB /* RecoveryViewController.swift in Sources */,
 				B63B474F24ED6BF5000EFF59 /* Data+Hex.swift in Sources */,
 				DC4ADCA22419140A008C23C7 /* BalanceViewCell.swift in Sources */,

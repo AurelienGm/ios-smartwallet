@@ -137,9 +137,9 @@ public class BackendService {
     }
     
     
-    public func relayTransaction(smartWallet: SmartWallet, messageData: String, gas: String = "", completion: @escaping (Result<RelayResponse, Error>) -> Void)  -> Void {
+    public func relayTransaction(destination: EthereumAddress, data: String, gas: String = "", completion: @escaping (Result<RelayResponse, Error>) -> Void)  -> Void {
         
-        let body = RelayRequest(to: smartWallet.address.value, data: messageData)
+        let body = RelayRequest(to: destination.value, data: data)
         
         var request = URLRequest(url: URL(string: self.relayURL+"?network="+self.network)!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
